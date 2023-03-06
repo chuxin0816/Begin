@@ -1,16 +1,12 @@
 #include <iostream>
 using namespace std;
-int main(){
-    int n;
-    cin>>n;
-    while(n--){
-        int la,lb,wa,wb,ha,hb;
-        cin>>la>>wa>>ha>>lb>>wb>>hb;
-        int maxa=max(max(la,wa),ha),mida=min(max(la,wa),ha),mina=min(min(la,wa),ha);
-        int maxb=max(max(lb,wb),hb),midb=min(max(lb,wb),hb),minb=min(min(lb,wb),hb);
-        if(maxa<=maxb&&mida<=midb&&mina<=minb) cout<<"yes\n";
-        else if(maxa>=maxb&&mida>=midb&&mina>=minb) cout<<"yes\n";
-        else cout<<"no\n";
-    }
+int main() {
+    int* p;
+    int i;
+    cin>>i;
+    if(i==0) p= nullptr;
+    else if(i==1) p=&i;
+    if(!p) cout<<"NULL\n";
+    else cout<<"Initialized\n";
     return 0;
 }

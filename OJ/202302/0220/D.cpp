@@ -1,20 +1,20 @@
 #include <iostream>
-#include <string>
 using namespace std;
-int main(){
+void sort(int *p1,int *p2,int *p3){
+    int _max=max(max(*p1,*p2),*p3);
+    int _min=min(min(*p1,*p2),*p3);
+    int _mid=*p1+*p2+*p3-_max-_min;
+    *p1=_max,*p2=_mid,*p3=_min;
+}
+int main() {
     int t;
     cin>>t;
     while(t--){
-        string str;
-        cin>>str;
-        int n=str.size();
-        for(auto i=0;i<n;++i){
-            if(str[i]>='A')
-            str[i]+=4;
-            if(str[i]>'z') str[i]-=26;
-            else if(str[i]<='Z'+4&&str[i]>'Z') str[i]-=26;
-            cout<<str[i];
-        }
-        cout<<endl;
+        int a,b,c;
+        cin>>a>>b>>c;
+        int *p1=&a,*p2=&b,*p3=&c;
+        sort(p1,p2,p3);
+        cout<<*p1<<' '<<*p2<<' '<<*p3<<' '<<endl;
     }
+    return 0;
 }

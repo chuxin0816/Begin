@@ -1,21 +1,18 @@
 #include <iostream>
 using namespace std;
-int main(){
-    int n;
-    cin>>n;
-    while(n--) {
-        int num, wei = 0;
-        cin >> num;
-        int num1=num;
-        while (num1) {
-            wei++;
-            num1 /= 10;
-        }
-        if (num % 6 == 0 || num % 10 == 6) {
-            cout << "Yes\n";
-            continue;
-        }
-        else if (wei % 6 == 0) cout << "Yes\n";
-        else cout << "No\n";
+void swap(int *a,int *b){
+    int temp=*a;
+    *a=*b;
+    *b=temp;
+}
+int main() {
+    int t;
+    cin>>t;
+    while(t--){
+        int a,b;
+        cin>>a>>b;
+        swap(&a,&b);
+        cout<<a<<' '<<b<<endl;
     }
+    return 0;
 }
