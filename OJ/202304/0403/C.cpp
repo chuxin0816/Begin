@@ -1,16 +1,19 @@
 #include <bits/stdc++.h>
 using namespace std;
-struct PolyTerm {
+struct Term {
   int coef, exp;
+  bool operator<(const Term& other) const { return exp < other.exp; }
 };
 class Polynomial {
  private:
-  vector<PolyTerm> terms;
+  vector<Term> terms;
 
  public:
   Polynomial() {}
-  Polynomial(const vector<PolyTerm>& t) : terms(t) {}
-  void addTerm(int coef, int exp) { terms.push_back({coef, exp}); }
+  Polynomial(const vector<Term>& t) : terms(t) {}
+  void addTerm(int coef, int exp) {
+    if (coef != 0) terms.push_back({coef, exp});
+  }
   Polynomial Add(const Polynomial& other) {
     Polynomial result;
     int i = 0, j = 0;
@@ -90,6 +93,7 @@ class Polynomial {
           result.addTerm(coefProd, expSum);
         }
       }
+      sort(result.terms.begin(), result.terms.end());
     }
     return result;
   }

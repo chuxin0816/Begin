@@ -1,11 +1,12 @@
 #include <bits/stdc++.h>
 using namespace std;
- class CTelNumber {
+class CTelNumber {
  public:
-  shared_ptr<string> str=make_shared<char[]>(8);
+  char* str = new char[8];
   CTelNumber(string p) {
     for (int i = 0; i < 7; ++i) str[i] = p[i];
   }
+  ~CTelNumber() { delete[] str; }
   CTelNumber(const CTelNumber& a) {
     switch (a.str[0]) {
       case '2':
