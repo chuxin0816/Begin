@@ -2,11 +2,11 @@
 using namespace std;
 class CTelNumber {
  public:
-  char* str = new char[8];
+  shared_ptr<char[]> str=make_shared<char[]>(8);
+  //shared_ptr<char[]> str{new char[8]};
   CTelNumber(string p) {
     for (int i = 0; i < 7; ++i) str[i] = p[i];
   }
-  ~CTelNumber() { delete[] str; }
   CTelNumber(const CTelNumber& a) {
     switch (a.str[0]) {
       case '2':
