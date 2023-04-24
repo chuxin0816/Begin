@@ -1,7 +1,11 @@
 #include <bits/stdc++.h>
 using namespace std;
+class A{
+  public:
+  static int a;
+};
+int A::a = 1;
 int main(){
-  int a=0^1;
-  int b=1^1;
-  cout<<a<<' '<<b<<endl;
+  A tem;
+  cout << tem.a << endl;
 }
